@@ -28,7 +28,8 @@ public class ForestPlugin : INethermindPlugin
     private void ProcessIncomingTransaction(object? sender, TxEventArgs e)
     {
         Transaction transaction = e.Transaction;
-        _logger.Info(transaction.Hash?.ToString());
+        (IApiWithStores getFromApi, _) = _nethermindApi.ForBlockchain;
+        _logger.Info(getFromApi.BlockTree.Head.Number.ToString());
     }
 
     public Task InitNetworkProtocol()
@@ -42,6 +43,9 @@ public class ForestPlugin : INethermindPlugin
 
         _tracer = new Tracer(_nethermindApi.StateProvider!, _nethermindApi.BlockchainProcessor!);
         _nethermindApi.TxPool!.NewPending += ProcessIncomingTransaction;
+
+        
+        
         return Task.CompletedTask;
     }
     
