@@ -213,6 +213,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethermind.Hive", "Nethermi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethermind.Hive.Tests", "Nethermind.Hive.Tests\Nethermind.Hive.Tests.csproj", "{96270195-EB87-41ED-A4E2-A342C50C4CF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forest.Plugin", "Forest.Plugin\Forest.Plugin.csproj", "{CB680924-232F-47A8-9AF0-9C7D4A31FF46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -563,6 +565,10 @@ Global
 		{96270195-EB87-41ED-A4E2-A342C50C4CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96270195-EB87-41ED-A4E2-A342C50C4CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96270195-EB87-41ED-A4E2-A342C50C4CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB680924-232F-47A8-9AF0-9C7D4A31FF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB680924-232F-47A8-9AF0-9C7D4A31FF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB680924-232F-47A8-9AF0-9C7D4A31FF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB680924-232F-47A8-9AF0-9C7D4A31FF46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
