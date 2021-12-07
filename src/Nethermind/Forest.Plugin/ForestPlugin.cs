@@ -3,6 +3,7 @@ using Nethermind.Api.Extensions;
 using Nethermind.Blockchain.Tracing;
 using Nethermind.Core;
 using Nethermind.Logging;
+using Nethermind.Network.Discovery;
 using Nethermind.TxPool;
 
 namespace Forest.Plugin;
@@ -29,7 +30,11 @@ public class ForestPlugin : INethermindPlugin
     {
         Transaction transaction = e.Transaction;
         (IApiWithStores getFromApi, _) = _nethermindApi.ForBlockchain;
-        _logger.Info(getFromApi.BlockTree.Head.Number.ToString());
+    }
+    private void ProcessNodeDiscovered(object? sender, NodeEventArgs e)
+    {
+        long currentRep = e.Node.CurrentReputation;
+        _logger.Info($"Node discovered! Current reputation: ${currentRep}");
     }
 
     public Task InitNetworkProtocol()
@@ -43,7 +48,7 @@ public class ForestPlugin : INethermindPlugin
 
         _tracer = new Tracer(_nethermindApi.StateProvider!, _nethermindApi.BlockchainProcessor!);
         _nethermindApi.TxPool!.NewPending += ProcessIncomingTransaction;
-
+        _nethermindApi.ForNetwork.GetFromApi.DiscoveryApp.NodeDiscovered
         
         
         return Task.CompletedTask;
